@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('description', 200);
 
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

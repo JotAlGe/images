@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('description', 200);
 
-            $table->foreignId('color_id')->nullable()->constrained('colors');
+            $table->foreignId('color_id')
+                ->nullable()
+                ->constrained('colors')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

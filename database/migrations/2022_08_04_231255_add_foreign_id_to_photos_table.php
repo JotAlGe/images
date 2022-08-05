@@ -14,9 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::table('photos', function (Blueprint $table) {
-            $table->foreignId('category_id')->nullable()->constrained('categories');
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('comment_id')->nullable()->constrained();
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('comment_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
