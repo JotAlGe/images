@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->foreignId('color_id')
                 ->nullable()
-                ->constrained('colors')
+                ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

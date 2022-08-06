@@ -9,7 +9,7 @@
 
         <nav>
             <div class="logo">
-                <a href="{{ route('home') }}">High<em>way</em></a>
+                <a href="{{ route('home') }}">Ho<em>me</em></a>
             </div>
             <div class="menu-icon">
                 <span></span>
@@ -195,16 +195,12 @@
             </div>
         </div>
 
+        {{-- footer --}}
+        <x-footer>
+            Copyright &copy; 2018 Company Name
 
-        <footer>
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <p>Copyright &copy; 2018 Company Name
-
-                        | Designed by TemplateMo</p>
-                </div>
-            </div>
-        </footer>
+            | Designed by TemplateMo
+        </x-footer>
 
 
         <!-- Modal button -->
@@ -295,9 +291,9 @@
             </div>
         </section>
 
+
+        {{-- scripts --}}
         @include('layouts.partials.scripts')
-
-
     </body>
 
 </html>

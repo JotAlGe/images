@@ -9,6 +9,8 @@ class Photo extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'url', 'category_id', 'user_id', 'comment_id'];
+
     // relationships with user
     public function user()
     {

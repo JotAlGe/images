@@ -9,6 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['description', 'color_id'];
+
     //relationships with photos
     public function photos()
     {

@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Juan',
@@ -22,5 +26,20 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => bcrypt('password')
         ]);
+
+        /* \App\Models\Color::factory()->create([
+            'description' => 'danger'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'successfully'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'info'
+        ]); */
+
+        \App\Models\Color::factory(3)->has(Category::factory()->count(5))->create();
+        \App\Models\Category::factory()->count(5)->create();
+        \App\Models\Comment::factory(10)->has(User::factory()->count(1))->create();
+        \App\Models\Photo::factory(10)->create();
     }
 }

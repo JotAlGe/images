@@ -20,22 +20,23 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <fieldset>
-                                        <input type="text" name="email" placeholder="Email..."
-                                            value="{{ old('email') }}" class="form-control">
 
+                                        <x-form.input type="text" name="email" placeholder="Email..."
+                                            value="{{ old('email') }}" class="form-control" />
                                         <span class="text-danger">
+
                                             @error('email')
                                             {{ $message }}
                                             @enderror
+
                                         </span>
 
                                     </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
-
-                                        <input type="password" name="password" placeholder="Password.."
-                                            class="form-control">
+                                        <x-form.input type="password" name="password" placeholder="Password.."
+                                            class="form-control" />
 
                                         <span class="text-danger">
                                             @error('password')
@@ -48,7 +49,11 @@
 
                                 <div class="col-md-12">
                                     <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Login</button>
+
+                                        <x-form.button type="submit" id="form-submit" class="btn">
+                                            Login
+                                        </x-form.button>
+
                                     </fieldset>
                                 </div>
                             </div>
