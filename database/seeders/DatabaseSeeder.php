@@ -37,7 +37,8 @@ class DatabaseSeeder extends Seeder
             'description' => 'info'
         ]); */
 
-        \App\Models\Color::factory(3)->has(Category::factory()->count(5))->create();
+        /* \App\Models\Color::factory(3)->has(Category::factory()->count(5))->create(); */
+        \App\Models\Color::factory()->count(10)->create();
         \App\Models\Category::factory()->count(5)->create();
         \App\Models\Comment::factory(10)->has(User::factory()->count(1))->create();
         \App\Models\Photo::factory(10)->create();

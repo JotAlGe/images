@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,9 +22,9 @@ class PhotoFactory extends Factory
         return [
             'name' => fake()->word(),
             'url' => fake()->imageUrl(),
-            'category_id' => rand(1, 10),
-            'user_id' => rand(1, 10),
-            'comment_id' => rand(1, 10)
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'comment_id' => Comment::inRandomOrder()->first()->id
         ];
     }
 }
