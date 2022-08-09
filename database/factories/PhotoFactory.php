@@ -19,9 +19,11 @@ class PhotoFactory extends Factory
      */
     public function definition()
     {
+        $faker = \Faker\Factory::create();
+        $faker->addProvider(new \Smknstd\FakerPicsumImages\FakerPicsumImagesProvider($faker));
         return [
-            'name' => fake()->word(),
-            'url' => fake()->imageUrl(),
+            'name' => $faker->word(),
+            'url' => $faker->imageUrl(350, 350),
             'category_id' => Category::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,
             'comment_id' => Comment::inRandomOrder()->first()->id

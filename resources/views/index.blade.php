@@ -32,7 +32,7 @@
     </div>
 
     {{-- portfolio images --}}
-    <div class="full-screen-portfolio" id="portfolio">
+    {{-- <div class="full-screen-portfolio" id="portfolio">
         <div class="container-fluid">
             <div class="col-md-4 col-sm-6">
                 <div class="portfolio-item">
@@ -188,7 +188,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
 
     {{-- footer and copyright --}}
     <footer>
