@@ -35,8 +35,6 @@
         </div>
 
 
-        <!-- Gallery -->
-
         @include('layouts.partials.scripts')
     </body>
 
