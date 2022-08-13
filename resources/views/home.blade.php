@@ -6,15 +6,7 @@
     {{-- body --}}
 
     <body>
-
-        <nav>
-            <div class="logo">
-                <a href="{{ route('home') }}">Ho<em>me</em></a>
-            </div>
-            <div class="menu-icon">
-                <span></span>
-            </div>
-        </nav>
+        @include('layouts.partials.nav')
 
         <div id="video-container">
             <div class="video-overlay"></div>
@@ -97,46 +89,8 @@
         </div>
 
 
-
-        <section class="overlay-menu">
-            <div class="container">
-                <div class="row">
-                    <div class="main-menu">
-                        <ul>
-                            <li>
-                                <a href="{{ route('home') }}">Home - Full-width</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('photos.index') }}">Gallery</a>
-                            </li>
-                            {{-- logaout --}}
-                            <li>
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <button class="btn btn-link">Logout</button>
-                                </form>
-                            </li>
-                            {{--
-                        <li>
-                            <a href="masonry.html">Home - Masonry</a>
-                        </li>
-                        <li>
-                            <a href="grid.html">Home - Small-width</a>
-                        </li>
-                        <li>
-                            <a href="about.html">About Us</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">Blog Entries</a>
-                        </li>
-                        <li>
-                            <a href="single-post.html">Single Post</a>
-                        </li> --}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        {{-- menu --}}
+        @include('layouts.partials.menu')
 
 
         {{-- scripts --}}
