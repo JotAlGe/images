@@ -15,7 +15,7 @@ class PhotoController extends Controller
     public function index()
     {
         return view('photos.index', [
-            'photos' => Photo::all()
+            'photos' => Photo::OrderBy('id', 'desc')->get()
         ]);
     }
 
@@ -26,7 +26,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('photos.create');
     }
 
     /**
