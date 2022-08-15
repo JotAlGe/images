@@ -13,8 +13,7 @@ class Photo extends Model
         'name',
         'url',
         'category_id',
-        'user_id',
-        'comment_id'
+        'user_id'
     ];
 
     // relationships with user
@@ -27,5 +26,11 @@ class Photo extends Model
     public function categoty()
     {
         return $this->belongsTo(Category::class)->withDefault();
+    }
+
+    // relation with comments
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

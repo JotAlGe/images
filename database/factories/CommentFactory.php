@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Photo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,7 +20,8 @@ class CommentFactory extends Factory
     {
         return [
             'description' => fake()->text(200),
-            'user_id' => User::inRandomOrder()->first()->id
+            'user_id' => User::inRandomOrder()->first()->id,
+            'photo_id' => Photo::inRandomOrder()->first()->id
         ];
     }
 }

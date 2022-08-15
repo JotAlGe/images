@@ -25,8 +25,7 @@ class PhotoFactory extends Factory
             'name' => $faker->word(),
             'url' => $faker->imageUrl(350, 350),
             'category_id' => Category::inRandomOrder()->first()->id,
-            'user_id' => User::inRandomOrder()->first()->id,
-            'comment_id' => Comment::inRandomOrder()->first()->id
+            'user_id' => User::inRandomOrder()->first()->id
         ];
     }
 }
