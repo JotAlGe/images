@@ -36,8 +36,14 @@
                             <div style="display: flex; justify-content: space-between;">
 
                                 <p class="card-text">{{$photo->name}} {{$photo->lastname}}</p>
+
                                 <small class="card-footer">{{$photo->created_at->diffForHumans()}}</small>
                             </div>
+
+                        </div>
+                        <div class="text-center
+                            bg-{{$photo->category->color->description}}">
+                            {{$photo->category->description}}
                         </div>
                     </div>
                 </div>

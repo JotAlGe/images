@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -28,11 +29,32 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /* \App\Models\Color::factory(3)->has(Category::factory()->count(5))->create(); */
-        \App\Models\Color::factory()->count(10)->create();
-        \App\Models\Category::factory()->count(5)->create();
+        \App\Models\Color::factory()->create([
+            'description' => 'primary'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'secondary'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'success'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'danger'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'warning'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'info'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'light'
+        ]);
+        \App\Models\Color::factory()->create([
+            'description' => 'dark'
+        ]);
+        \App\Models\Category::factory(10)->has(Color::factory()->count(10))->create();
         \App\Models\Photo::factory(10)->has(Comment::factory()->count(2))->create();
         \App\Models\Comment::factory(10)->has(User::factory()->count(1))->create();
-        //\App\Models\Photo::factory(10)->has(Comment::factory()->count(2))->create();
     }
 }

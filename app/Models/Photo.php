@@ -23,7 +23,7 @@ class Photo extends Model
     }
 
     // relationships with categories
-    public function categoty()
+    public function category()
     {
         return $this->belongsTo(Category::class)->withDefault();
     }
