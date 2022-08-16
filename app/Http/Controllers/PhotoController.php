@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+//use App\Http\Requests\StorePhotoRequest;
+
+use App\Http\Requests\StorePhotoRequest;
+use App\Models\Category;
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class PhotoController extends Controller
 {
@@ -26,7 +33,9 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('photos.create');
+        return view('photos.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -37,7 +46,13 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Photo::create([
+            'name' => $request->name,
+            'url' => Storage::url($request->file('url')->store('public/photos')),
+            'category_id' => $request->category_id,
+            'user_id' => Auth::id()
+        ]);
+        return redirect()->route('photos.index')->with('success', 'Upload successfully');
     }
 
     /**
