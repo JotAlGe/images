@@ -25,9 +25,8 @@ class StorePhotoRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:5', 'max:100'],
-            'url' => ['required', 'mimes:png,jpg,jpeg,'],
-            'category_id' => ['required', 'numeric'],
-            'user_id' => ['required', 'numeric']
+            'url' => ['required', 'mimes:png,jpg,jpeg'],
+            'category_id' => ['required', 'numeric']
         ];
     }
 }

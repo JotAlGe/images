@@ -16,11 +16,15 @@
 
         <!-- Gallery -->
         <div class="grid">
+
+            {{-- alert success --}}
             @if (session()->has('success'))
-            <div class="alert alert-success" role="alert">
+
+            <x-form.alert color="success">
                 {{ session('success') }}
-            </div>
+            </x-form.alert>
             @endif
+
             <div style="display: flex; justify-content: space-around; align-items:center;">
                 <h1>Gallery</h1>
                 <a href="{{ route('photos.create') }}" class="btn btn-success">New photo</a>

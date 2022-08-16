@@ -22,7 +22,7 @@ class PhotoController extends Controller
     public function index()
     {
         return view('photos.index', [
-            'photos' => Photo::OrderBy('id', 'desc')->get()
+            'photos' => Photo::OrderBy('created_at', 'desc')->get()
         ]);
     }
 
@@ -44,13 +44,12 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, StorePhotoRequest $val)
+    public function store(StorePhotoRequest $val)
     {
-        $val->validated();
         Photo::create([
-            'name' => $request->name,
-            'url' => Storage::url($request->file('url')->store('public/photos')),
-            'category_id' => $request->category_id,
+            'name' => $val->name,
+            'url' => Storage::url($val->file('url')->store('public/photos')),
+            'category_id' => $val->category_id,
             'user_id' => Auth::id()
         ]);
         return redirect()->route('photos.index')->with('success', 'Upload successfully');

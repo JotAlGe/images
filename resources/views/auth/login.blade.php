@@ -50,7 +50,7 @@
                                 <div class="col-md-12">
                                     <fieldset>
 
-                                        <x-form.button type="submit" id="form-submit" class="btn">
+                                        <x-form.button type="submit" id="form-submit" color="dark">
                                             Login
                                         </x-form.button>
 
