@@ -44,8 +44,9 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, StorePhotoRequest $val)
     {
+        $val->validated();
         Photo::create([
             'name' => $request->name,
             'url' => Storage::url($request->file('url')->store('public/photos')),
