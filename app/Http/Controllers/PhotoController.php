@@ -63,7 +63,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('photos.show', compact('photo'));
     }
 
     /**

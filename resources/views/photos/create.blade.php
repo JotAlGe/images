@@ -1,5 +1,9 @@
 @include('layouts.partials.head')
 
+{{-- nav --}}
+@include('layouts.partials.nav')
+@include('layouts.partials.menu')
+
 <div class="container-fluid">
     <h1 class="text-center">
         Upload a photo...
