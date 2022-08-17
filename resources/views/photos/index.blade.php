@@ -59,19 +59,42 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title text-info" id="exampleModalLabel"> {{$photo->name}}
+                                    <h1 class="modal-title text-info" id="exampleModalLabel">
+                                        {{$photo->name}}
                                     </h1>
-
                                 </div>
+
                                 <div class="modal-body">
                                     <img src="{{ $photo->url }}" alt="{{ $photo->name }}" style="max-width: 100%">
                                 </div>
+
+                                <div class="text-info text-left p-4">
+                                    <p class="text-warning">Comments</p>
+                                    @forelse($photo->comments as $comment)
+                                    <div style="border: .5px solid rgba(177, 177, 177, .5); padding: 1%;">
+                                        <small style="color:white;">
+                                            {{$comment->user->name}} {{$comment->user->lastname}}
+                                        </small>
+                                        <p>
+                                            {{ $comment->description}}
+                                        </p>
+                                        <br>
+                                        <p class="text-warning text-right">
+                                            {{ $comment->created_at->diffForHumans()}}
+                                        </p>
+                                    </div>
+                                    @empty
+                                    <h4 class="text-center text-danger">No comments yet...</h4>
+                                    @endforelse
+                                </div>
+
                                 <div class="modal-footer">
                                     <x-form.button data-dismiss="modal" color="danger">
                                         Close
                                     </x-form.button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

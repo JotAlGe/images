@@ -20,5 +20,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::view('home', 'home')->name('home');
-    Route::resource('photos', PhotoController::class)->names('photos');
+    Route::resource('photos', PhotoController::class)
+        ->except(['show'])
+        ->names('photos');
 });
