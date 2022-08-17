@@ -97,6 +97,8 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        $this->authorize('delete', $photo);
+        $photo->delete();
+        return back();
     }
 }

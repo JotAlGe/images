@@ -22,4 +22,5 @@ https://templatemo.com/tm-520-highway
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="https://kit.fontawesome.com/135afbfc6b.js" crossorigin="anonymous"></script>
 </head>
