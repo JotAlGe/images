@@ -25,9 +25,35 @@
 
         <div style="display: flex; justify-content: space-around; align-items:center;">
             <h1>Gallery</h1>
+
             <a href="{{ route('photos.create') }}" class="btn btn-info">New photo</a>
         </div>
+        <div class="row mb-3">
+            <div class="col-md-2">
 
+            </div>
+            <div class="input-group mb-3 col-md-8 d-inline-flex">
+                <form action="{{ route('photos.index') }}" method="GET" class="form"
+                    style="display: flex; justify-content: center;">
+
+                    <label for="categories" style="margin: 1%">Categories: </label>
+                    <select name="category" class="form-select form-group" aria-label="Default" id="categories"
+                        style="margin: 1%">
+
+                        @foreach ($categories as $category)
+                        <option value=" {{$category->id}}">{{$category->description}}</option>
+                        @endforeach
+                    </select>
+                    <x-form.button type="submit" color="info" style="margin: 1%">
+                        <i class="fa fa-filter" aria-hidden="true"></i>
+                        Filter
+                    </x-form.button>
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
         <div class="g-col-4">
             @forelse ($photos as $photo)
             <div style="border: .3px solid rgba(128, 128, 128, .5)" class="col-sm-6 col-md-3 col-lg-3 p-3 m-3">

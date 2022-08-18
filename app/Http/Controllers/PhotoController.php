@@ -19,10 +19,19 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        /* return view('photos.index', [
+            'photos' => Photo::OrderBy('created_at', 'desc')->get(),
+            'categories' => Category::all()
+        ]); */
         return view('photos.index', [
-            'photos' => Photo::OrderBy('created_at', 'desc')->get()
+            'photos' => Photo::with('category')
+                ->orderBy('created_at', 'desc')
+                ->when(request('category'), function ($query) {
+                    return $query->where('category_id', request('category'));
+                })->get(),
+            'categories' => Category::all()
         ]);
     }
 
